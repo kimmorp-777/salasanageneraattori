@@ -1,0 +1,26 @@
+import random
+
+sanat = [
+    "aurinko", "metsä", "koira", "joki", "tähti", "pilvi",
+    "kirja", "talo", "meri", "omena", "kukka", "silta",
+    "polku", "tuuli", "laiva", "kivi", "lehti", "susi"
+]
+
+erikoismerkit = ["!", "#", "?", "@", "$", "%", "&"]
+
+def generoi_salasana():
+    valitut = random.sample(sanat, 4)
+
+    # Muutetaan sanojen alku isot kirjaimet sisältäviksi
+    valitut = [sana.capitalize() for sana in valitut]
+
+    numero = str(random.randint(10, 99))
+    merkki = random.choice(erikoismerkit)
+
+    # Rakennetaan salasana
+    salasana = valitut[0] + merkki + valitut[1] + numero + valitut[2] + valitut[3]
+    return salasana
+
+# Tulostetaan 5 esimerkkisalasanaa
+for i in range(5):
+    print(generoi_salasana())
